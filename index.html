@@ -356,8 +356,11 @@ items.forEach(item=>{
     messengerBtn.href = "https://m.me/splasher11";
 
     modal.style.display = "flex";
-    footer.classList.add('hide-footer');
+footer.classList.add('hide-footer');
 
+// BACK BUTTON FIX
+history.pushState({modal:true}, "");
+    
     playVideoBtn.onclick = () => {
       modalImage.style.display = 'none';
       playVideoBtn.style.display = 'none';
@@ -424,6 +427,14 @@ btns.forEach(btn=>{
       }
     }
   });
+});
+  // ANDROID BACK BUTTON FIX
+window.addEventListener("popstate", function () {
+
+  if (modal.style.display === "flex") {
+    closeModal();
+  }
+
 });
 </script>
 
